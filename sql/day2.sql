@@ -7,7 +7,7 @@ CREATE TABLE db_1702.student (
   age INT,
   height double(3,2),
   price DECIMAL(6,2),
-  dob  DATE,-- date of birth
+  dob  DATE,-- date  of birth
   time DATETIME
 );
 
