@@ -1,0 +1,56 @@
+MySQL
+
+VARCHAR  可变长的字符类型
+column  属性 列 字段
+SQL 语句必须以分号结尾
+单行注释 ctrl+/
+多行注释 ctrl+shift+/
+
+SELECT - extracts data from a database  选择
+UPDATE - updates data in a database  更新
+DELETE - deletes data from a database  删除
+INSERT INTO - inserts new data into a database 插入
+CREATE DATABASE - creates a new database 创建数据库
+ALTER DATABASE - modifies a database 更改数据库
+DROP DATABASE - deletes a database 删除数据库
+CREATE TABLE - creates a new table 创建表
+ALTER TABLE - modifies a table 更改表
+DROP TABLE - deletes a table 删除表
+CREATE INDEX - creates an index (search key) 创建索引
+DROP INDEX - deletes an index 删除索引
+
+SQL数据类型
+
+  1.文字类型
+    数据类型        描述
+    CHAR(size)      持有一个固定长度的字符串（可以包含字母，数字和特殊字符）。
+                    固定大小在括号中指定。最多可存储255个字符
+
+    VARCHAR(size)   持有可变长度字符串（可以包含字母，数字和特殊字符）。
+                    最大尺寸在括号中指定。最多可存储255个字符。
+                    注意：如果将一个值大于255的值转换为TEXT类型
+
+    TINYTEXT        持有最多255个字符的字符串
+
+    TEXT            持有长度为65,535个字符的字符串
+
+    BLOB            对于BLOB（二进制大对象）。最多可容纳65,535字节的数据
+
+    MEDIUMTEXT      持有最长为16,777,215个字符的字符串
+
+    MEDIUMBLOB      对于BLOB（二进制大对象）。最多可保存16,777,215字节的数据
+
+    LONGTEXT        持有一个字符串，最大长度为4,294,967,295个字符
+
+    LONGTEXT        对于BLOB（二进制大对象）。最多可保存4,294,967,295字节的数据
+
+    ENUM(x,y,z,etc.) 让您输入可能的值列表。您可以在ENUM列表中列出最多65535个值。
+                     如果插入了不在列表中的值，则将插入一个空白值。
+                     注意：这些值按您输入的顺序进行排序。
+                     您可以输入以下格式的值：ENUM（'X'，'Y'，'Z'）
+
+    SET             类似于ENUM，除了SET可以包含多达64个列表项，
+                    并且可以存储多个选择
+
+
+
