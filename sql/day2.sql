@@ -1,14 +1,14 @@
 DROP TABLE db_1702.student;
 
 CREATE TABLE db_1702.student (
-  name VARBINARY(10),
-  intro TEXT,
-  gender CHAR(2),
-  age INT,
-  height double(3,2),
-  price DECIMAL(6,2),
-  dob  DATE,-- date of birth
-  time DATETIME
+  name VARBINARY(10) COMMENT '姓名',
+  intro TEXT COMMENT '简介',
+  gender CHAR(2) COMMENT '性别',
+  age INT COMMENT '年龄',
+  height double(3,2) COMMENT '身高',
+  price DECIMAL(6,2) COMMENT '价格',
+  dob  DATE COMMENT '出生日期',-- date of birth
+  time DATETIME COMMENT '时间'
 );
 
 
