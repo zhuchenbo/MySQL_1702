@@ -1,6 +1,12 @@
 DROP DATABASE IF EXISTS db_1702;
 CREATE DATABASE db_1702;
 
+SELECT *
+FROM db_1702.student;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+
 DROP TABLE IF EXISTS db_1702.student;
 
 CREATE TABLE db_1702.student (
@@ -11,7 +17,8 @@ CREATE TABLE db_1702.student (
   name   VARCHAR(255) NOT NULL
   COMMENT '姓名', -- 255
   intro  TEXT COMMENT '简介',
-  gender CHAR(2) COMMENT '性别',
+  gender CHAR(2) COMMENT '男'
+    COMMENT '性别',
   age    INT UNSIGNED COMMENT '年龄',
   height DOUBLE(3, 2) COMMENT '身高',
   price  DECIMAL(10, 3) COMMENT '价格', -- 1234.56
@@ -20,10 +27,14 @@ CREATE TABLE db_1702.student (
 );
 
 INSERT INTO db_1702.student
-VALUES (NULL, '20170002', 'Jerry', 'asdf', NULL, NULL, 1.7, 1234567.891, '1999-5-1', '2017-5-1 1:39:01');
-
+VALUES (NULL, '20170002', 'Jerry', 'asdf', '女', 19, 1.7, 1234567.891, '1999-5-1', '2017-5-1 1:39:01');
 INSERT INTO db_1702.student
-VALUES (NULL, '20170001', 'Tom', 'asdf', NULL, NULL, 1.7, 1234567.891, '1999-5-1', '2017-5-1 1:39:01');
+VALUES (NULL, '20170002', 'Jerry', 'asdf', NULL, 20, 1.7, 1234567.891, '1999-5-1', '2017-5-1 1:39:01');
+INSERT INTO db_1702.student
+VALUES (NULL, '20170001', 'Jerry', 'asdf', NULL, NULL , 1.7, 1234567.891, '1999-5-1', '2017-5-1 1:39:01');
+
+INSERT INTO db_1702.student(name,age)
+    VALUE ('Zhangsan',20);
 
 
 SELECT *
@@ -32,9 +43,11 @@ FROM db_1702.student;
 DELETE FROM db_1702.student
 WHERE id = 4 OR id = 5;
 
+
+
 DELETE FROM db_1702.student;
 
-TRUNCATE TABLE db_1702.student;
+TRUNCATE TABLE db_1702.student;-- truncate 清空
 
 -- 课程表 课程名 学分 ...
 DROP TABLE IF EXISTS db_1702.course;
@@ -72,11 +85,10 @@ FROM db_1702.course;
 INSERT INTO db_1702.student_course VALUES (NULL, 2, 1, NULL);
 INSERT INTO db_1702.student_course VALUES (NULL, 2, 2, NULL);
 INSERT INTO db_1702.student_course VALUES (NULL, 1, 2, NULL);
-SELECT *
-FROM db_1702.student_course;
 
 SELECT *
-FROM db_1702.student_course;
+FROM db_1702.course;
+
 
 UPDATE db_1702.student_course
 SET db_1702.student_course.score = 50
@@ -86,3 +98,7 @@ WHERE id = 1;
 SHOW FULL COLUMNS FROM db_1702.student_course;
 
 SHOW VARIABLES LIKE 'char%';
+
+
+
+

@@ -31,7 +31,7 @@ CREATE TABLE db_1702.student_course (
   studentId INT COMMENT '学生 ID',
   courseId  INT COMMENT '课程 ID',
   score     INT COMMENT '考试成绩'
--- CONSTRAINT fk_sutdent_course_studentId FOREIGN KEY (studentId) REFERENCES db_1702.student (id)
+  -- CONSTRAINT fk_sutdent_course_studentId FOREIGN KEY (studentId) REFERENCES db_1702.student (id)
 );
 
 -- alter 改变\ ['ɔːltə\;\ 'ɒl-]    DDL
@@ -50,10 +50,10 @@ REFERENCES db_1702.course (id);
 SHOW FULL COLUMNS FROM db_1702.student_course;
 
 INSERT INTO db_1702.student_course
-VALUES (NULL, 1, 1, NULL );
+VALUES (NULL, 1, 1, NULL);
 
 INSERT INTO db_1702.student_course
-VALUES (NULL, 1, 2, NULL );
+VALUES (NULL, 1, 2, NULL);
 
 -- INSERT INTO db_1702.student_course
 -- VALUES (NULL, 1, 3, NULL);
@@ -63,3 +63,14 @@ VALUES (NULL, 1, 2, NULL );
 
 SELECT *
 FROM student_course;
+
+SHOW COLUMNS FROM db_1702.student;
+SHOW COLUMNS FROM db_1702.student_course;
+
+SELECT *
+FROM db_1702.course;
+
+DELETE FROM db_1702.course
+WHERE id = 2;
+
+DELETE FROM db_1702.student_course;
