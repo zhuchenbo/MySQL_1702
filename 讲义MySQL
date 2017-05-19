@@ -1,23 +1,31 @@
 MySQL
 
-VARCHAR  可变长的字符类型
-column  属性 列 字段
-SQL 语句必须以分号结尾
-单行注释 ctrl+/
-多行注释 ctrl+shift+/
+   *  代表所有行 所有列
 
-SELECT - extracts data from a database  选择
-UPDATE - updates data in a database  更新
-DELETE - deletes data from a database  删除
-INSERT INTO - inserts new data into a database 插入
-CREATE DATABASE - creates a new database 创建数据库
-ALTER DATABASE - modifies a database 更改数据库
-DROP DATABASE - deletes a database 删除数据库
-CREATE TABLE - creates a new table 创建表
-ALTER TABLE - modifies a table 更改表
-DROP TABLE - deletes a table 删除表
-CREATE INDEX - creates an index (search key) 创建索引
-DROP INDEX - deletes an index 删除索引
+    ip  意思是互联网协议
+
+    ip 地址  起始值  0  终止值 255
+
+
+
+    VARCHAR  可变长的字符类型
+    column  属性 列 字段
+    SQL 语句必须以分号结尾
+    单行注释 ctrl+/
+    多行注释 ctrl+shift+/
+
+    SELECT - extracts data from a database  选择
+    UPDATE - updates data in a database  更新
+    DELETE - deletes data from a database  删除
+    INSERT INTO - inserts new data into a database 插入
+    CREATE DATABASE - creates a new database 创建数据库
+    ALTER DATABASE - modifies a database 更改数据库
+    DROP DATABASE - deletes a database 删除数据库
+    CREATE TABLE - creates a new table 创建表
+    ALTER TABLE - modifies a table 更改表
+    DROP TABLE - deletes a table 删除表
+    CREATE INDEX - creates an index (search key) 创建索引
+    DROP INDEX - deletes an index 删除索引
 
 SQL数据类型
 
@@ -53,5 +61,96 @@ SQL数据类型
                     并且可以存储多个选择
 
 
-约束和限制 是添加到表上某一个字段
+    约束和限制 是添加到表上某一个字段
 
+DDL
+数据定义语句
+
+    SQL外键
+
+    主表父表
+    从表子表（外键所在的表）
+    必须引用主表主键
+    外键和主键数据类型一致
+
+
+    MySQL之alter语句用法总结
+    1：删除列
+
+    ALTER TABLE 【表名字】 DROP 【列名称】
+
+    2：增加列
+
+    ALTER TABLE 【表名字】 ADD 【列名称】 INT NOT NULL  COMMENT '注释说明'
+
+    3：修改列的类型信息
+
+    ALTER TABLE 【表名字】 CHANGE 【列名称】【新列名称（这里可以用和原来列同名即可）】 BIGINT NOT NULL  COMMENT '注释说明'
+
+    4：重命名列
+
+    ALTER TABLE 【表名字】 CHANGE 【列名称】【新列名称】 BIGINT NOT NULL  COMMENT '注释说明'
+
+    5：重命名表
+
+    ALTER TABLE 【表名字】 RENAME 【表新名字】
+
+    6：删除表中主键
+
+    Alter TABLE 【表名字】 drop primary key
+
+    7：添加主键
+
+    ALTER TABLE sj_resource_charges ADD CONSTRAINT PK_SJ_RESOURCE_CHARGES PRIMARY KEY (resid,resfromid)
+
+    8：添加索引
+
+    ALTER TABLE sj_resource_charges add index INDEX_NAME (name);
+
+    9: 添加唯一限制条件索引
+
+    ALTER TABLE sj_resource_charges add unique emp_name2(cardnumber);
+
+    10: 删除索引
+
+    alter table tablename drop index emp_name;
+
+
+DML
+数据操纵语句
+
+
+    INSERT INTO db_1702.student(name)
+        VALUE ('N1'),('N2'),('N3');     -- 插入多条记录
+
+
+    SHOW CREATE TABLE db_1702.student;  --  显示建表语句
+
+    UPDATE db_1702.student   --  更改更新字段
+        SET height=1.6,name='李四',gender='男'  -- 更改多个字段中间加逗号
+    WHERE id=7;   --  更改第几行 加第几行的 id
+
+
+    price  最多可以写7位
+
+    DELETE FROM db_1702.student
+    WHERE id=15;-- 删除语句
+
+
+DML
+
+
+    MySQL Show
+
+
+        SHOW DATABASES; 显示服务器中所有的库
+        SHOW TABLES; 显示库中所有的表
+        SHOW TABLE STATUS FROM database_name; 显示库中所有表的信息
+        SHOW TABLE STATUS WHERE Name = 'table_name'; 显示表的信息
+        SHOW [FULL] COLUMNS FROM table_name; 显示表中所有列的信息
+        SHOW TABLE STATUS WHERE Name = 'table_name'; 显示表的信息
+        SHOW FULL TABLES FROM database_name; 显示库中的表和视图
+        SHOW VARIABLES; 显示变量
+        SHOW CREATE TABLE table_name; 显示建表语句
+        SHOW CREATE VIEW view_name; 显示建视图语句
+        SHOW INDEX FROM table_name; 显示表中索引信息
